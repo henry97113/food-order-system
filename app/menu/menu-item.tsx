@@ -8,13 +8,12 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item";
-import type { MenuItem } from "@/types/menu";
+import { useFoodOrderStore } from "@/store/food-order";
+import type { MenuItem as MenuItemType } from "@/types/menu";
 
-interface MenuItemProps extends MenuItem {
-  addToCart?: () => void;
-}
+function MenuItem({ id, name, price }: MenuItemType) {
+  const addToCart = useFoodOrderStore((state) => state.addToCart);
 
-function MenuItem({ name, price }: MenuItemProps) {
   return (
     <Item variant="outline" role="listitem">
       <ItemContent>
@@ -22,7 +21,12 @@ function MenuItem({ name, price }: MenuItemProps) {
         <ItemDescription>${price}</ItemDescription>
       </ItemContent>
       <ItemActions>
-        <Button variant="secondary">Add to Cart</Button>
+        <Button
+          variant="secondary"
+          onClick={() => addToCart({ id, name, price })}
+        >
+          Add to Cart
+        </Button>
       </ItemActions>
     </Item>
   );
