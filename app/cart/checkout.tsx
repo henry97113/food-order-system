@@ -29,7 +29,9 @@ function Checkout() {
     <div className="py-10 flex justify-end">
       <Card className="w-full max-w-xs">
         <CardHeader>
-          <CardTitle>Subtotal: ${subtotal}</CardTitle>
+          <CardTitle>
+            Subtotal: $<span data-testid="subtotal">{subtotal}</span>
+          </CardTitle>
         </CardHeader>
         <CardFooter>
           <Button size="lg" className="w-full" onClick={handleCheckout}>
