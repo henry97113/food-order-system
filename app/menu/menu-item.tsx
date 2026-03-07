@@ -17,8 +17,10 @@ function MenuItem({ id, name, price }: MenuItemType) {
   return (
     <Item variant="outline" role="listitem">
       <ItemContent>
-        <ItemTitle>{name}</ItemTitle>
-        <ItemDescription>${price}</ItemDescription>
+        <ItemTitle data-testid="menu-item-name">{name}</ItemTitle>
+        <ItemDescription data-testid="menu-item-price">
+          ${price}
+        </ItemDescription>
       </ItemContent>
       <ItemActions>
         <Button
