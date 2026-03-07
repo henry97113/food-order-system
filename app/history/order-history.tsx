@@ -1,17 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useFoodOrderStore } from "@/store/food-order";
-import Link from "next/link";
 import { OrderItem } from "./order-item";
 
 function OrderHistory() {
-  const hasHydrated = useFoodOrderStore((state) => state._hasHydrated);
   const orderHistory = useFoodOrderStore((state) => state.orderHistory);
-
-  if (!hasHydrated) {
-    return null;
-  }
 
   if (orderHistory.length === 0) {
     return (

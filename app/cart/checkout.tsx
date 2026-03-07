@@ -1,16 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CartItem } from "@/store/cart-slice";
 import { useFoodOrderStore } from "@/store/food-order";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 function Checkout() {
   const router = useRouter();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
-  const hasHydrated = useFoodOrderStore((state) => state._hasHydrated);
   const cart = useFoodOrderStore((state) => state.cart);
   const checkout = useFoodOrderStore((state) => state.checkout);
 
@@ -21,10 +20,6 @@ function Checkout() {
     setIsCheckingOut(true);
     checkout();
     router.push("/history");
-  }
-
-  if (!hasHydrated) {
-    return null;
   }
 
   // Prevent empty cart flashing

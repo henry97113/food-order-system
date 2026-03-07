@@ -1,8 +1,8 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import CartPage from "./page";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useFoodOrderStore } from "@/store/food-order";
+import CartPage from "./page";
 
 // Mock next/navigation
 const pushMock = vi.fn();

@@ -1,16 +1,14 @@
-import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import MenuPage from "./page";
-import { useFoodOrderStore } from "@/store/food-order";
+import { describe, it, expect, beforeEach } from "vitest";
 import { MENU } from "@/constants/menu";
+import { useFoodOrderStore } from "@/store/food-order";
+import MenuPage from "./page";
 
 describe("Menu Page Integration", () => {
   beforeEach(() => {
-    // Reset the store before each test
     useFoodOrderStore.setState({
       cart: [],
-      _hasHydrated: true, // Force hydration to true so the cart button renders
     });
   });
 

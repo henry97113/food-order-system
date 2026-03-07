@@ -1,18 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useFoodOrderStore } from "@/store/food-order";
-import Link from "next/link";
 import { CartItem } from "./cart-item";
 
 function CartList() {
-  const hasHydrated = useFoodOrderStore((state) => state._hasHydrated);
   const cart = useFoodOrderStore((state) => state.cart);
   const isCartEmpty = cart.length === 0;
-
-  if (!hasHydrated) {
-    return null;
-  }
 
   if (isCartEmpty) {
     return (

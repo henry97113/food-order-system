@@ -1,19 +1,13 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useFoodOrderStore } from "@/store/food-order";
 import { RiShoppingBagLine } from "@remixicon/react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { useFoodOrderStore } from "@/store/food-order";
 
 function CartButton() {
   const cart = useFoodOrderStore((state) => state.cart);
-  const hasHydrated = useFoodOrderStore((state) => state._hasHydrated);
   const cartAmount = cart.length;
-
-  if (!hasHydrated) {
-    return <Skeleton className="h-8 w-14" />;
-  }
 
   return (
     <Button
