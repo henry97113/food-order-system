@@ -5,9 +5,11 @@ import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CartItem } from "@/store/cart-slice";
 import { useFoodOrderStore } from "@/store/food-order";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 function Checkout() {
   const router = useRouter();
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
   const hasHydrated = useFoodOrderStore((state) => state._hasHydrated);
   const cart = useFoodOrderStore((state) => state.cart);
   const checkout = useFoodOrderStore((state) => state.checkout);
@@ -16,12 +18,25 @@ function Checkout() {
   const subtotal = getSubtotal(cart).toFixed(2);
 
   function handleCheckout() {
-    // TODO: display an overlay when checking out so that users don't see the flash of "Empty Cart" screen
+    setIsCheckingOut(true);
     checkout();
     router.push("/history");
   }
 
-  if (!hasHydrated || isCartEmpty) {
+  if (!hasHydrated) {
+    return null;
+  }
+
+  // Prevent empty cart flashing
+  if (isCheckingOut) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
+        <p className="text-xl font-semibold">Processing your order...</p>
+      </div>
+    );
+  }
+
+  if (isCartEmpty) {
     return null;
   }
 
