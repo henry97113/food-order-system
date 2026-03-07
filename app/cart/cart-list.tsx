@@ -16,10 +16,10 @@ function CartList() {
 
   if (isCartEmpty) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 h-40">
+      <div className="flex flex-col items-center justify-center gap-4 h-40 sm:h-60">
         <p>Nothing in cart yet...</p>
         <Button nativeButton={false} render={<Link href="/menu" />}>
-          Go pick some food
+          Go shopping
         </Button>
       </div>
     );

@@ -55,7 +55,7 @@ function OrderItem({ id, items, total, date }: Order) {
     >
       <ItemContent>
         <ItemTitle className="text-xl" data-testid="order-item-id">
-          Order {id.slice(0, 8)}
+          Order #{id.slice(0, 8)}
         </ItemTitle>
         <ItemDescription data-testid="order-item-time">
           {new Date(date).toLocaleString("en-US")}

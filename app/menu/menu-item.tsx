@@ -22,7 +22,7 @@ function MenuItem({ id, name, price }: MenuItemType) {
       </ItemContent>
       <ItemActions>
         <Button
-          variant="secondary"
+          variant="outline"
           onClick={() => addToCart({ id, name, price })}
         >
           Add to Cart

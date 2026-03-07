@@ -15,7 +15,7 @@ function OrderHistory() {
 
   if (orderHistory.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 h-40">
+      <div className="flex flex-col items-center justify-center gap-4 h-40 sm:h-60">
         <p>No transaction found.</p>
         <Button nativeButton={false} render={<Link href="/menu" />}>
           Go shopping
