@@ -37,16 +37,23 @@ function OrderItem({ id, items, total, date }: Order) {
         className="flex-col items-start sm:flex-row sm:items-center"
       >
         <ItemContent>
-          <ItemTitle className="text-xl">Order {id.slice(0, 8)}</ItemTitle>
-          <ItemDescription>{new Date(date).toLocaleString()}</ItemDescription>
-          <ul>
+          <ItemTitle className="text-xl" data-testid="order-item-id">
+            Order {id.slice(0, 8)}
+          </ItemTitle>
+          <ItemDescription data-testid="order-item-time">
+            {new Date(date).toLocaleString("en-US")}
+          </ItemDescription>
+          <ul data-testid="order-item-entries">
             {items.map((item) => (
               <li key={item.id}>
                 {item.name} - ${(item.price * item.quantity).toFixed(2)}
               </li>
             ))}
           </ul>
-          <h3 className="text-lg pt-4">Subtotal: ${total.toFixed(2)}</h3>
+          <h3 className="text-lg pt-4">
+            Subtotal: $
+            <span data-testid="order-item-subtotal">{total.toFixed(2)}</span>
+          </h3>
         </ItemContent>
         <ItemActions>
           <Button variant="destructive" onClick={openConfirmDialog}>
