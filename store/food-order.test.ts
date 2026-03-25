@@ -4,13 +4,6 @@ import { useFoodOrderStore } from "./food-order";
 describe("Food Order Store - Cart Slice", () => {
   const mockItem = { id: "b1", name: "Classic Burger", price: 5.99 };
 
-  beforeEach(() => {
-    useFoodOrderStore.setState({
-      cart: [],
-      orderHistory: [],
-    });
-  });
-
   it("should have an initial empty cart", () => {
     expect(useFoodOrderStore.getState().cart).toEqual([]);
   });
@@ -76,13 +69,6 @@ describe("Food Order Store - History Slice", () => {
     date: "2024-01-01T12:00:00.000Z",
   };
 
-  beforeEach(() => {
-    useFoodOrderStore.setState({
-      cart: [],
-      orderHistory: [],
-    });
-  });
-
   it("should have an initial empty order history", () => {
     expect(useFoodOrderStore.getState().orderHistory).toEqual([]);
   });
@@ -144,10 +130,6 @@ describe("Food Order Store - Checkout", () => {
   const mockItem2 = { id: "s1", name: "Fries", price: 2.99 };
 
   beforeEach(() => {
-    useFoodOrderStore.setState({
-      cart: [],
-      orderHistory: [],
-    });
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2024-01-01T12:00:00.000Z"));
   });
