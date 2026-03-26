@@ -16,7 +16,9 @@ import { useFoodOrderStore } from "@/store/food-order";
 
 function ClearHistoryButton() {
   const clearHistory = useFoodOrderStore((state) => state.clearHistory);
-  const hasHistory = useFoodOrderStore((state) => state.orderHistory.length > 0);
+  const hasHistory = useFoodOrderStore(
+    (state) => state.orderHistory.length > 0,
+  );
 
   if (!hasHistory) {
     return null;
