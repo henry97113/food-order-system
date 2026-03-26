@@ -2,11 +2,12 @@
   "name": "food-order-system",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "oxlint",
     "test": "vitest",
     "format": "oxfmt",
     "format:check": "oxfmt --check"
@@ -33,10 +34,9 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
-    "eslint": "^9.39.4",
-    "eslint-config-next": "16.1.6",
     "jsdom": "^28.1.0",
     "oxfmt": "^0.42.0",
+    "oxlint": "^1.57.0",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.1"
